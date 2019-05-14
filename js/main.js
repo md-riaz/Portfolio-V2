@@ -30,6 +30,11 @@ $(".nav-icon").on("click", function() {
   slideout.toggle();
 });
 
+//click close menu
+
+$("#main").on("click", function() {
+  slideout.close();
+});
 // TypeError.js initial code
 var typed = new Typed(".auto_type", {
   stringsElement: "#typed-strings",
