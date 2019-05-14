@@ -83,6 +83,7 @@ aside {
   position: fixed;
   min-width: 15vw;
   height: 100vh;
+  z-index: 1;
   box-shadow: 0 1px 14px 0px rgba(0, 0, 0, 0.1);
 
   header.brand img {
@@ -450,7 +451,11 @@ section {
     background: lightgray;
     border-radius: 40px;
     margin: 3em;
-
+    
+    @media #{$tablet} {
+      padding: 1em;
+      margin: 2em 1em;
+    }
     .skillbar {
       position: relative;
       display: block;
