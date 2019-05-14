@@ -528,7 +528,7 @@ section {
   bottom: 0;
   right: 0;
   z-index: 2;
-  width: fit-content;
+  width: 256px;
   overflow:hidden;
   -webkit-overflow-scrolling: touch;
   display: block;
@@ -552,7 +552,7 @@ section {
 .slideout-open,
 .slideout-open body,
 .slideout-open .slideout-panel {
-  overflow: -webkit-paged-y;
+  overflow: auto;
 }
 
 .slideout-open .slideout-menu {
