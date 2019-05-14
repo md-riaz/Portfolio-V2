@@ -17,6 +17,7 @@ $blue_gradient: linear-gradient(
 $xs-phone: "(max-width: 575px)";
 $phone: "(min-width: 576px) and (max-width: 767px)";
 $tablet: "(max-width: 1023px)";
+$desktop: "(min-width: 1024px)";
 //---------------------------------//
 
 //basic setup-------------------
@@ -315,7 +316,6 @@ section {
   }
 }
 
-
 #works .title,
 #about .title,
 #skills .title,
@@ -445,28 +445,81 @@ section {
 }
 
 #skills {
-  //bubble progress css properties
   .skill_progress {
-    display: flex;
-    flex-wrap: wrap;
-    margin: 3em 2em;
-    background: white;
-    border-radius: 5%;
-  }
-  .ldBar-label {
-    color: #fff;
-    font-size: 5vmin;
-    font-weight: 900;
-  }
-  .progress_items {
-    display: inline-block;
-    height: 250px;
-    width: 200px;
-    margin: 1em;
+    padding: 5em;
+    background: lightgray;
+    border-radius: 40px;
+    margin: 3em;
 
-    span {
-      text-align: center;
+    .skillbar {
+      position: relative;
       display: block;
+      margin-bottom: 15px;
+      width: 100%;
+      background: #eee;
+      height: 35px;
+      border-radius: 3px;
+      -moz-border-radius: 3px;
+      -webkit-border-radius: 3px;
+      -webkit-transition: 0.4s linear;
+      -moz-transition: 0.4s linear;
+      -ms-transition: 0.4s linear;
+      -o-transition: 0.4s linear;
+      transition: 0.4s linear;
+      -webkit-transition-property: width, background-color;
+      -moz-transition-property: width, background-color;
+      -ms-transition-property: width, background-color;
+      -o-transition-property: width, background-color;
+      transition-property: width, background-color;
+
+      .skillbar-title {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 110px;
+        font-weight: bold;
+        font-size: 13px;
+        color: #ffffff;
+        background: #6adcfa;
+        -webkit-border-top-left-radius: 3px;
+        -webkit-border-bottom-left-radius: 4px;
+        -moz-border-radius-topleft: 3px;
+        -moz-border-radius-bottomleft: 3px;
+        border-top-left-radius: 3px;
+        border-bottom-left-radius: 3px;
+        span {
+          display: block;
+          background: rgba(0, 0, 0, 0.1);
+          padding: 0 20px;
+          height: 35px;
+          line-height: 35px;
+          -webkit-border-top-left-radius: 3px;
+          -webkit-border-bottom-left-radius: 3px;
+          -moz-border-radius-topleft: 3px;
+          -moz-border-radius-bottomleft: 3px;
+          border-top-left-radius: 3px;
+          border-bottom-left-radius: 3px;
+        }
+      }
+      .skillbar-bar {
+        height: 35px;
+        width: 0px;
+        background: #6adcfa;
+        border-radius: 3px;
+        -moz-border-radius: 3px;
+        -webkit-border-radius: 3px;
+      }
+    }
+
+    .skill-bar-percent {
+      position: absolute;
+      right: 10px;
+      top: 0;
+      font-size: 13px;
+      height: 35px;
+      line-height: 35px;
+      color: #ffffff;
+      color: rgba(0, 0, 0, 0.68);
     }
   }
 }
@@ -528,21 +581,17 @@ section {
   bottom: 0;
   right: 0;
   z-index: 2;
-  width: 256px;
-  overflow:hidden;
+  width: fit-content;
+  overflow: hidden;
   -webkit-overflow-scrolling: touch;
-  display: block;
+  display: none;
   @media #{$tablet} {
-    display: none;
+    width: 256px;
   }
-  @media #{$phone} {
-    display: none;
-  }
-  @media #{$xs-phone} {
-    display: none;
+  @media #{$desktop} {
+    display: block;
   }
 }
-
 
 .slideout-panel {
   position: relative;
@@ -595,6 +644,9 @@ section {
       }
     }
   }
+  #skills {
+    color: $black;
+  }
   #works .title,
   #about .title,
   #skills .title,
@@ -619,7 +671,8 @@ section {
         color: $black;
       }
     }
-  }.nav-icon {
+  }
+  .nav-icon {
     &::after,
     &::before,
     div {

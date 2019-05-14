@@ -494,32 +494,77 @@ section {
 }
 
 #skills .skill_progress {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -ms-flex-wrap: wrap;
-      flex-wrap: wrap;
-  margin: 3em 2em;
-  background: white;
-  border-radius: 5%;
+  padding: 5em;
+  background: lightgray;
+  border-radius: 40px;
+  margin: 3em;
 }
 
-#skills .ldBar-label {
-  color: #fff;
-  font-size: 5vmin;
-  font-weight: 900;
-}
-
-#skills .progress_items {
-  display: inline-block;
-  height: 250px;
-  width: 200px;
-  margin: 1em;
-}
-
-#skills .progress_items span {
-  text-align: center;
+#skills .skill_progress .skillbar {
+  position: relative;
   display: block;
+  margin-bottom: 15px;
+  width: 100%;
+  background: #eee;
+  height: 35px;
+  border-radius: 3px;
+  -moz-border-radius: 3px;
+  -webkit-border-radius: 3px;
+  -webkit-transition: 0.4s linear;
+  transition: 0.4s linear;
+  -webkit-transition-property: width, background-color;
+  transition-property: width, background-color;
+}
+
+#skills .skill_progress .skillbar .skillbar-title {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 110px;
+  font-weight: bold;
+  font-size: 13px;
+  color: #ffffff;
+  background: #6adcfa;
+  -webkit-border-top-left-radius: 3px;
+  -webkit-border-bottom-left-radius: 4px;
+  -moz-border-radius-topleft: 3px;
+  -moz-border-radius-bottomleft: 3px;
+  border-top-left-radius: 3px;
+  border-bottom-left-radius: 3px;
+}
+
+#skills .skill_progress .skillbar .skillbar-title span {
+  display: block;
+  background: rgba(0, 0, 0, 0.1);
+  padding: 0 20px;
+  height: 35px;
+  line-height: 35px;
+  -webkit-border-top-left-radius: 3px;
+  -webkit-border-bottom-left-radius: 3px;
+  -moz-border-radius-topleft: 3px;
+  -moz-border-radius-bottomleft: 3px;
+  border-top-left-radius: 3px;
+  border-bottom-left-radius: 3px;
+}
+
+#skills .skill_progress .skillbar .skillbar-bar {
+  height: 35px;
+  width: 0px;
+  background: #6adcfa;
+  border-radius: 3px;
+  -moz-border-radius: 3px;
+  -webkit-border-radius: 3px;
+}
+
+#skills .skill_progress .skill-bar-percent {
+  position: absolute;
+  right: 10px;
+  top: 0;
+  font-size: 13px;
+  height: 35px;
+  line-height: 35px;
+  color: #ffffff;
+  color: rgba(0, 0, 0, 0.68);
 }
 
 #my_form {
@@ -595,27 +640,23 @@ section {
   bottom: 0;
   right: 0;
   z-index: 2;
-  width: 256px;
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
   overflow: hidden;
   -webkit-overflow-scrolling: touch;
-  display: block;
+  display: none;
 }
 
 @media (max-width: 1023px) {
   .slideout-menu {
-    display: none;
+    width: 256px;
   }
 }
 
-@media (min-width: 576px) and (max-width: 767px) {
+@media (min-width: 1024px) {
   .slideout-menu {
-    display: none;
-  }
-}
-
-@media (max-width: 575px) {
-  .slideout-menu {
-    display: none;
+    display: block;
   }
 }
 
@@ -675,6 +716,10 @@ section {
 .dark-mode #home div.hire:hover {
   background: #fff;
   color: #304ffe;
+}
+
+.dark-mode #skills {
+  color: #000;
 }
 
 .dark-mode #works .title,

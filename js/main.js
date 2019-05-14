@@ -25,8 +25,6 @@ if (sessionStorage.getItem("mode") == "dark") {
   nodark();
 }
 
-
-
 //nav bar icon
 $(".nav-icon").on("click", function() {
   slideout.toggle();
@@ -70,6 +68,20 @@ var slideout = new Slideout({
   menu: document.getElementById("aside"),
   padding: 256,
   tolerance: 70
+});
+
+//skill bars
+jQuery(document).ready(function() {
+  jQuery(".skillbar").each(function() {
+    jQuery(this)
+      .find(".skillbar-bar")
+      .animate(
+        {
+          width: jQuery(this).attr("data-percent")
+        },
+        6000
+      );
+  });
 });
 
 //super placeholder
