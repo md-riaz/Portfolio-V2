@@ -167,7 +167,7 @@ aside header.brand img {
 .social .github,
 .social .fb,
 .social .mail,
-.social .insta {
+.social .codepen {
   display: inline-block;
   height: 25px;
   width: 25px;
@@ -182,7 +182,7 @@ aside header.brand img {
 .social .github:hover,
 .social .fb:hover,
 .social .mail:hover,
-.social .insta:hover {
+.social .codepen:hover {
   -webkit-transform: scale(1.5);
           transform: scale(1.5);
   transition: all 0.2s ease-in-out;
@@ -199,7 +199,7 @@ aside header.brand img {
   background-color: red;
   color: #fff;
 }
-.social .insta {
+.social .codepen {
   background-color: #d40d70;
   color: #fff;
 }
