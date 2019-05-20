@@ -48,6 +48,7 @@ $(function() {
 
 //contact form
 $("#my_form").submit(function(event) {
+  $(".mybtn").val("Wait...");
   event.preventDefault(); //prevent default action
   var post_url = $(this).attr("action"); //get form action url
   var request_method = $(this).attr("method"); //get form GET/POST method
@@ -59,7 +60,10 @@ $("#my_form").submit(function(event) {
     data: form_data
   }).done(function(response) {
     $("#my_form").trigger("reset");
-    $("#server-results").html(response);
+    $(".mybtn").val("Submit Form");
+    var x = document.getElementById("snackbar");
+    x.className = "show";
+    setTimeout(function(){ x.className = x.className.replace("show", ""); }, 3000);
   });
 });
 
