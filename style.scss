@@ -5,13 +5,35 @@ $grey: #4b4f5d;
 $white_grey: #8a91a2;
 $white: #fff;
 $black: #000;
-$transparent_bg: #9e9e9f1c;
+$transparent_bg: rgba(158, 158, 159, 0.10980392156862745);;
 $blue_gradient: linear-gradient(
   190deg,
   rgba(51, 8, 103, 1) 0%,
   rgba(46, 46, 210, 1) 50%,
   rgb(7, 66, 114) 100%
 );
+
+//custom scroll bar
+/* width */
+::-webkit-scrollbar {
+  width: 3px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: #f1f1f1; 
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: $blue; 
+	border-radius: 50px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: $blue_gradient; 
+}
 
 //Responsive media Queries
 $xs-phone: "(max-width: 575px)";
@@ -234,7 +256,7 @@ section {
 }
 
 #home {
-  background: $bg url(../img/home_bg.png) no-repeat;
+  background: $bg url(https://i.postimg.cc/JhMZ3KB0/home-bg.png) no-repeat;;
   background-position: center;
   background-size: contain;
   overflow: hidden;
@@ -526,7 +548,6 @@ section {
       font-size: 13px;
       height: 35px;
       line-height: 35px;
-      color: #ffffff;
       color: rgba(0, 0, 0, 0.68);
     }
   }
@@ -590,7 +611,7 @@ section {
   bottom: 0;
   right: 0;
   z-index: 2;
-  width: fit-content;
+  width: min-content;
   overflow: auto;
   -webkit-overflow-scrolling: touch;
   display: none;
