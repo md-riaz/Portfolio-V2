@@ -31,14 +31,14 @@ $(".nav-icon").on("click", function() {
 });
 
 
-// TypeError.js initial code
+// Typed.js initial code
 var typed = new Typed(".auto_type", {
   stringsElement: "#typed-strings",
   loop: true,
   smartBackspace: true,
   backSpeed: 60,
   backDelay: 1000,
-  showCursor: false
+  showCursor: true
 });
 
 //scroll progress loader on top
@@ -48,7 +48,7 @@ $(function() {
 
 //contact form
 $("#my_form").submit(function(event) {
-  $(".mybtn").val("Wait...");
+  $(".mybtn").addClass("action");
   event.preventDefault(); //prevent default action
   var post_url = $(this).attr("action"); //get form action url
   var request_method = $(this).attr("method"); //get form GET/POST method
@@ -60,7 +60,7 @@ $("#my_form").submit(function(event) {
     data: form_data
   }).done(function(response) {
     $("#my_form").trigger("reset");
-    $(".mybtn").val("Submit Form");
+    $(".mybtn").removeClass("action");
     var x = document.getElementById("snackbar");
     x.className = "show";
     setTimeout(function(){ x.className = x.className.replace("show", ""); }, 3000);
@@ -112,3 +112,27 @@ superplaceholder({
   el: document.getElementById("m"),
   sentences: ["Type your messege now...", "This should not be empty!!!!"]
 });
+
+/*Lazy loading img with intersection observer*/
+let observer = new IntersectionObserver((entries, observer) => { 
+		entries.forEach(entry => {
+		if(entry.isIntersecting){
+			console.log(entry);
+			entry.target.src = entry.target.dataset.src;
+			observer.unobserve(entry.target);
+		}
+		});
+	}, {rootMargin: "0px 0px 1000px 0px"});
+	document.querySelectorAll('img').forEach(img => { observer.observe(img) });
+
+//scal project items
+let projectitem = new IntersectionObserver((entries, projectitem) => { 
+		entries.forEach(entry => {
+		if(entry.isIntersecting){
+			console.log(entry);
+			$(".item").addClass("obs");
+			projectitem.unobserve(entry.target);
+		}
+		});
+	}, {rootMargin: "0px 0px 0px 0px"});
+	document.querySelectorAll('.item').forEach(em => { projectitem.observe(em) });

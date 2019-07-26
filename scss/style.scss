@@ -1,44 +1,40 @@
-/* Startup animation */
 .open {
-	position: fixed;
-	top: 0;
-	left: 0;
-	right: 0;
-	bottom: 0;
-	pointer-events: none;
-	z-index: 10000;
-	
-	.layer {
-		position: absolute;
-		top: 0;
-		left: 0;
-		width: 100%;
-		height: 100%;
-		transform-origin: top;
-		animation: open 1s ease-in-out forwards;
-		
-		&:nth-child(1) {
-			background: #1d1e22;
-			z-index: 2;
-		}
-		&:nth-child(2)	{
-			background: #03a9f4;
-			animation-delay: 1s;
-			z-index: 1;
-		}
-	}
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  pointer-events: none;
+  z-index: 10000;
+
+  .layer {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    transform-origin: top;
+    animation: open 0.8s ease-in-out forwards;
+
+    &:nth-child(1) {
+      background: #1d1e22;
+      z-index: 2;
+    }
+    &:nth-child(2) {
+      background: #03a9f4;
+      animation-delay: 0.5s;
+      z-index: 1;
+    }
+  }
 }
 
-@keyframes open
-{
-	0%
-	{
-		transform: scaleY(1);
-	}
-	100%
-	{
-		transform: scaleY(0);
-	}
+@keyframes open {
+  0% {
+    transform: scaleY(1);
+  }
+  100% {
+    transform: scaleY(0);
+  }
 }
 
 /*
@@ -49,26 +45,26 @@
 
 $bg: #f7f7f7;
 $blue: #304ffe;
-$black_grey: #1f2126;
+$black_grey: darken($bg, 90%);
 $grey: #4b4f5d;
-$white_grey: #8a91a2;
+$white_grey: lighten($grey, 25%);
 $white: #fff;
 $black: #000;
-$transparent_bg: rgba(158, 158, 159, 0.10980392156862745);;
+$Purple_Heart: #673ab7;
 $blue_gradient: linear-gradient(
   190deg,
   rgba(51, 8, 103, 1) 0%,
   rgba(46, 46, 210, 1) 50%,
   rgb(7, 66, 114) 100%
 );
-
-/* 
-*
-* Custom scroll bar
-*
-*/
-
-
+$blue_gradient_reverse: linear-gradient(
+  190deg,
+  rgb(7, 66, 114) 0%,
+  rgba(46, 46, 210, 1) 50%,
+  rgba(51, 8, 103, 1) 100%
+);
+$box-shadow: 10px 10px 5px -4px rgba(0, 0, 0, 0.12);
+//custom scroll bar
 /* width */
 ::-webkit-scrollbar {
   width: 3px;
@@ -76,30 +72,28 @@ $blue_gradient: linear-gradient(
 
 /* Track */
 ::-webkit-scrollbar-track {
-  background: #f1f1f1; 
+  background: #f1f1f1;
 }
 
 /* Handle */
 ::-webkit-scrollbar-thumb {
-  background: $blue; 
-	border-radius: 50px;
+  background: $blue;
+  border-radius: 50px;
 }
 
 /* Handle on hover */
 ::-webkit-scrollbar-thumb:hover {
-  background: $blue_gradient; 
+  background: $blue_gradient;
 }
 
-/* Responsive media Queries */
-
+//Responsive media Queries
 $xs-phone: "(max-width: 575px)";
 $phone: "(min-width: 576px) and (max-width: 767px)";
 $tablet: "(max-width: 1023px)";
 $desktop: "(min-width: 1024px)";
+//---------------------------------//
 
-/* ---------------------------------*/ 
-
-/* Basic setup */
+//basic setup-------------------
 *,
 *:before,
 *:after {
@@ -121,12 +115,11 @@ body {
   background: $bg;
   width: 100%;
   min-height: 100vh;
-	position: relative;
 }
 
 a {
   text-decoration: none;
-	color: inherit;
+  color: inherit;
 }
 
 p {
@@ -152,11 +145,14 @@ p {
     font-size: 5vmin;
     height: 1em;
     font-weight: bold;
-    color: currentColor;
+    color: white;
+    background-color: $blue;
+    display: inline-block;
+    padding: 0.25em 0.25em 1.5em 0.25em;
   }
 }
 
-/* Aside bar setup */ 
+//aside bar setup--------------------------------------
 
 aside {
   background: $white;
@@ -165,21 +161,21 @@ aside {
   min-width: 15vw;
   height: 100vh;
   z-index: 1;
-  box-shadow: 0 1px 14px 0px rgba(0, 0, 0, 0.1);
-	display:hidden;
+  box-shadow: $box-shadow;
+  display: hidden;
 
   header.brand img {
     border-radius: 50%;
     max-width: 100px;
     max-height: 100px;
     margin-top: 100px;
-    box-shadow: 0px 20px 20px 0px rgba(63, 78, 165, 0.1);
+    box-shadow: $box-shadow;
     border: 2px dashed $blue;
     padding: 1px;
   }
 }
 
-/* navbar setup */ 
+//nav bae setup---------------------------------------------------
 
 .nav {
   margin-top: 5em;
@@ -256,7 +252,7 @@ aside {
   }
 }
 
-/* social media icons setup */ 
+//social media icons setup----------------------------
 .social {
   margin: 2em 0 2em 0;
 
@@ -299,7 +295,7 @@ aside {
   }
 }
 
-/* main section */  
+// main section----------------------------------
 
 main {
   display: grid;
@@ -316,11 +312,11 @@ section {
 }
 
 #home {
-  background: $bg url(img/home_bg.png) no-repeat;;
+  background: $bg url(https://i.postimg.cc/JhMZ3KB0/home-bg.png) no-repeat;
   background-position: center;
-  background-size: contain;
+  background-size: cover;
   overflow: hidden;
-
+  position: relative;
   .title img {
     max-width: 80%;
     width: 70%;
@@ -328,11 +324,11 @@ section {
   }
 
   .contact_btn {
-    margin: 5em 0 0 3em;
+    margin: 5em 3em;
     background: $blue;
     color: $white;
     display: block;
-    max-width: 15vmax;
+    width: 15vmax;
     height: 3em;
     text-align: center;
     line-height: 3em;
@@ -341,14 +337,14 @@ section {
 
   div.hire {
     background: $white;
-    width: 15vmax;
     height: 8vmax;
+    width: 15vmax;
     border-bottom-left-radius: 100px;
     border-bottom-right-radius: 100px;
     text-align: center;
-    line-height: 10vmax;
+    line-height: 8vmax;
     text-transform: uppercase;
-    color: $blue;
+    color: #304ffe;
     text-decoration: underline;
     cursor: pointer;
     font-size: 0.85em;
@@ -356,7 +352,7 @@ section {
     top: 0;
     right: 5vw;
     z-index: 1;
-    box-shadow: 0 1px 14px 0px rgba(0, 0, 0, 0.1);
+    box-shadow: $box-shadow;
     &:hover {
       background: $blue;
       color: $white;
@@ -364,7 +360,7 @@ section {
     }
   }
 }
-/* nav icon */ 
+//nav icon---------------------------------------------
 .nav-icon {
   margin: 1em;
   width: 40px;
@@ -372,6 +368,8 @@ section {
   top: 2vh;
   left: 2vw;
   display: none;
+  cursor: pointer;
+  z-index: 2;
   @media #{$tablet} {
     display: block;
   }
@@ -386,8 +384,12 @@ section {
     margin: 7px 0;
     transition: all 0.2s ease-in-out;
   }
+  div {
+    width: 30px;
+  }
 }
 .slideout-open .nav-icon {
+  margin-left: 16em;
   &::before {
     transform: translateY(12px) rotate(135deg);
   }
@@ -399,20 +401,19 @@ section {
     transform: translateY(-12px) rotate(-135deg);
   }
 }
-
-
-/* All the titles */ 
+//all the titles------------------------------------
 #works .title,
 #about .title,
 #skills .title,
 #contact .title {
-  margin-left: 1em;
+  margin: 0.5em 1em;
   color: $black_grey;
-  background: $transparent_bg;
+  background: $white;
   padding: 1em 1em 1em 2em;
   border-radius: 50px;
-	font-size: 1.5em;
-	font-weight: bold;
+  font-size: 1.5em;
+  font-weight: bold;
+  box-shadow: $box-shadow;
   span {
     color: $blue;
   }
@@ -423,78 +424,89 @@ section {
     color: $blue;
   }
 }
+//Works----------------------------------
+#works {
+  .projects {
+    display: flex;
+    flex-wrap: wrap;
+    margin: 3em 2em;
+    justify-content: center;
+    .item {
+      background: $white;
+      margin: 1.5em 0.7em;
+      position: relative;
+      width: 247px;
+      opacity: 0.5;
+      transition: 0.2s;
+      transform: scale(0.5);
+      &.obs {
+        transform: scale(1);
+        opacity: 1;
+      }
+      &:hover {
+        box-shadow: $box-shadow;
+        transform: scale(1.1);
+        z-index: 2;
+        transition: all 0.1s ease-in-out;
+        cursor: pointer;
 
-/* project section */
-.projects {
-  display: flex;
-  flex-wrap: wrap;
-  margin: 3em 2em;
-  .item {
-    background: $white;
-    margin: 1.5em 0.7em;
-    position: relative;
-    width: 247px;
-    &:hover {
-      box-shadow: 3px 7px 19px 2px rgba(138, 138, 138, 0.3);
-      transition: all 0.1s ease-in-out;
-      cursor: pointer;
+        .caption {
+          color: $blue;
+        }
+      }
+      i {
+        color: $black;
+      }
+      img {
+        height: 200px;
+        width: 247px;
+        border-bottom: 1px solid $blue;
+        border-top: 1px solid $blue;
+      }
 
       .caption {
-        color: $blue;
-      }
-    }
-    i {
-      color: $black;
-    }
-    img {
-      height: 200px;
-      width: 247px;
-      border-bottom: 1px solid $blue;
-      border-top: 1px solid $blue;
-    }
+        height: 105px;
+        padding: 1em;
 
-    .caption {
-      height: 105px;
-      padding: 1em;
+        p {
+          font-size: 1em;
+          span {
+            font-weight: bold;
+          }
+        }
+        a {
+          text-decoration: none;
+          margin: 0 5px;
 
-      p {
-        font-size: 1em;
-        span {
-          font-weight: bold;
-        }
-      }
-      a {
-        text-decoration: none;
-        margin: 0 5px;
-
-        &.download,
-        &.preview {
-          padding: 8px 12px;
-          transition: all 0.1s ease-in-out;
-          background: $white;
-          box-shadow: 0 -4px 19px 0px rgba(138, 138, 138, 0.15);
-        }
-        &.download {
-          position: absolute;
-          right: 35px;
-          bottom: 0;
-        }
-        &.preview {
-          position: absolute;
-          right: -5px;
-          bottom: 0;
-        }
-        &:hover {
-          background: $blue;
-          i {
-            color: $white;
+          &.download,
+          &.preview {
+            padding: 8px 12px;
+            transition: all 0.1s ease-in-out;
+            background: $white;
+            box-shadow: $box-shadow;
+          }
+          &.download {
+            position: absolute;
+            right: 35px;
+            bottom: 0;
+          }
+          &.preview {
+            position: absolute;
+            right: -5px;
+            bottom: 0;
+          }
+          &:hover {
+            background: $blue;
+            i {
+              color: $white;
+            }
           }
         }
       }
     }
   }
 }
-/* About section */ 
+//about------------------------------------------------
 
 .about-info {
   margin: 5em 2em;
@@ -510,6 +522,7 @@ section {
     padding: 1px;
     border-radius: 50%;
     grid-area: bioimage;
+    box-shadow: $box-shadow;
   }
   .bio {
     font-size: 1.5rem;
@@ -531,8 +544,11 @@ section {
   .job-3 {
     grid-area: job3;
   }
+  span {
+    color: $blue;
+  }
 }
-/* Skills section */ 
+//skills---------------------------------------
 
 #skills {
   .skill_progress {
@@ -540,7 +556,7 @@ section {
     background: lightgray;
     border-radius: 40px;
     margin: 3em;
-    
+
     @media #{$tablet} {
       padding: 1em;
       margin: 2em 1em;
@@ -616,7 +632,7 @@ section {
     }
   }
 }
-/* Contact section */  
+// contact form---------------------------------------------
 
 #my_form {
   width: 50%;
@@ -637,26 +653,82 @@ section {
     border-radius: 0.3rem;
     background: darken(#f9f9f9, 10%);
     color: darken(#f9f9f9, 50%);
+  }
 
-    &[type="submit"] {
-      background: $blue;
-      color: $white;
-      width: auto;
-      float: right;
-      cursor: pointer;
+  &::placeholder {
+    color: darken(#f9f9f9, 50%);
+  }
+  .mybtn {
+    background: transparent;
+    color: $white;
+    width: 100px;
+    height: 30px;
+    float: right;
+    cursor: pointer;
+    border: none;
+    outline: none;
+    transform-style: preserve-3d;
+    perspective: 500px;
+    transition: 0.5s;
+    position: relative;
+    span {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      line-height: 30px;
+      display: block;
+      text-align: center;
+      backface-visibility: hidden;
+      transform-style: preserve-3d;
+      transition: 0.5s;
+      border-radius: 30px;
+      color: #fff;
+      &.front {
+        transform: rotateX(0deg) translateZ(20px);
+      }
 
-      &:hover {
-        background: darken($blue, 10%);
+      &.back {
+        transform: rotateX(180deg) translateZ(20px);
+      }
+
+      &.center {
+        background: $blue_gradient;
+
+        &::before {
+          content: "";
+          position: absolute;
+          left: 0;
+          top: 0;
+          width: 100%;
+          height: 100%;
+          border-radius: 30px;
+          background: $blue_gradient_reverse;
+          transform: translatez(-1px);
+        }
       }
     }
+    &:hover .center {
+      background: $blue;
+    }
+    &.action {
+      .front {
+        transform: rotateX(-180deg) translateZ(20px);
+      }
 
-    &::placeholder {
-      color: darken(#f9f9f9, 50%);
+      .back {
+        transform: rotateX(0deg) translateZ(20px);
+      }
+
+      .center {
+        transform: rotateX(-180deg);
+      }
     }
   }
 }
 
-	#snackbar {
+#snackbar {
   visibility: hidden;
   min-width: 250px;
   margin-left: -125px;
@@ -670,18 +742,23 @@ section {
   left: 50%;
   bottom: 30px;
   font-size: 17px;
-		&.show {
-  visibility: visible;
-  -webkit-animation: fadein 0.5s, fadeout 0.5s 2.5s;
-  animation: fadein 0.5s, fadeout 0.5s 2.5s;
-		}
+  &.show {
+    visibility: visible;
+    -webkit-animation: fadein 0.5s, fadeout 0.5s 2.5s;
+    animation: fadein 0.5s, fadeout 0.5s 2.5s;
+  }
 }
-	@keyframes fadein {
-  from {bottom: 0; opacity: 0;}
-  to {bottom: 30px; opacity: 1;}
+@keyframes fadein {
+  from {
+    bottom: 0;
+    opacity: 0;
+  }
+  to {
+    bottom: 30px;
+    opacity: 1;
+  }
 }
 
-/* Footer */
 #main-footer {
   height: 60px;
   padding: 1rem;
@@ -692,7 +769,7 @@ section {
   background: $black_grey;
 }
 
-/* Slideout.js styles */  
+// Slideout.js styles
 
 .slideout-menu {
   position: fixed;
@@ -728,9 +805,9 @@ section {
   display: block;
 }
 
-/* ---------------------------------------------- */ 
+//-------------------------------------
 
-/* Blue/dark mode */ 
+//blue mode
 .dark-mode {
   color: $white;
   background: $blue_gradient;
@@ -755,7 +832,7 @@ section {
   #home {
     background: $blue_gradient;
     div.hire {
-      box-shadow: -3px 9px 13px 9px rgba(61, 12, 255, 0.31);
+      box-shadow: $box-shadow;
       background: rgba(51, 8, 103, 1);
       color: $white;
       &:hover {
@@ -772,9 +849,15 @@ section {
   #skills .title,
   #contact .title {
     color: $white;
+    background: $Purple_Heart;
 
     span {
-      color: $blue;
+      color: lighten($blue, 10%);
+    }
+  }
+  .title_sub {
+    span {
+      color: lighten($blue, 10%);
     }
   }
   .projects .caption {
@@ -786,10 +869,15 @@ section {
     .job-1,
     .job-2,
     .job-3 {
-      color: $black;
+      color: $white;
+      background: lighten($blue, 10%);
       p {
-        color: $black;
+        color: $white;
       }
+    }
+    span {
+      color: $white;
+      font-weight: bold;
     }
   }
   .nav-icon {
@@ -801,8 +889,7 @@ section {
   }
 }
 
-/* Responsive setup */ 
-
+//Responsive
 @media #{$tablet} {
   aside header.brand img {
     margin-top: 5vh;
@@ -831,8 +918,8 @@ section {
   #about .title,
   #skills .title,
   #contact .title {
-    margin-left: 0;
-		padding: 0.5em 0.5em 0.5em 1em;
+    margin: 0;
+    padding: 0.5em 0.5em 0.5em 1em;
   }
   .projects {
     justify-content: center;
@@ -840,15 +927,13 @@ section {
   .about-info .bio {
     font-size: 1.2rem;
   }
-	#my_form {
+  #my_form {
     width: 80%;
-	}
+  }
   #main-footer {
     margin: 0;
   }
 }
-
-
 @media #{$phone} {
   .projects {
     margin: 3em 0 0 0;
@@ -860,14 +945,12 @@ section {
     width: 28vw;
   }
 }
-
-
 @media #{$xs-phone} {
   h2 {
     font-size: 1em;
   }
   #home .contact_btn {
-    margin: 2em 0 0 3em;
+    margin: 2em 0 2em 1.5em;
     height: 2em;
     line-height: 2em;
     font-size: 14px;
