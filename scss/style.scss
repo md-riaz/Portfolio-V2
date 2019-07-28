@@ -633,7 +633,9 @@ section {
   }
 }
 // contact form---------------------------------------------
-
+#contact {
+  min-height: 50vh;
+}
 #my_form {
   width: 50%;
   margin: 10% auto;

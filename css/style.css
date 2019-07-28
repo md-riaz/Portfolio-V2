@@ -14,9 +14,9 @@
   width: 100%;
   height: 100%;
   -webkit-transform-origin: top;
-          transform-origin: top;
+  transform-origin: top;
   -webkit-animation: open 0.8s ease-in-out forwards;
-          animation: open 0.8s ease-in-out forwards;
+  animation: open 0.8s ease-in-out forwards;
 }
 .open .layer:nth-child(1) {
   background: #1d1e22;
@@ -25,29 +25,29 @@
 .open .layer:nth-child(2) {
   background: #03a9f4;
   -webkit-animation-delay: 0.5s;
-          animation-delay: 0.5s;
+  animation-delay: 0.5s;
   z-index: 1;
 }
 
 @-webkit-keyframes open {
   0% {
     -webkit-transform: scaleY(1);
-            transform: scaleY(1);
+    transform: scaleY(1);
   }
   100% {
     -webkit-transform: scaleY(0);
-            transform: scaleY(0);
+    transform: scaleY(0);
   }
 }
 
 @keyframes open {
   0% {
     -webkit-transform: scaleY(1);
-            transform: scaleY(1);
+    transform: scaleY(1);
   }
   100% {
     -webkit-transform: scaleY(0);
-            transform: scaleY(0);
+    transform: scaleY(0);
   }
 }
 /*
@@ -161,7 +161,8 @@ aside header.brand img {
   margin-top: 1.5em;
   white-space: nowrap;
 }
-.nav .nav_items:hover, .nav .nav_items.active {
+.nav .nav_items:hover,
+.nav .nav_items.active {
   color: #304ffe;
   margin-left: 20px;
   transition: all 1s cubic-bezier(0.075, 0.82, 0.165, 1);
@@ -193,7 +194,7 @@ aside header.brand img {
 }
 .nav .switch input:checked + .slider::before {
   -webkit-transform: translateX(32px);
-          transform: translateX(32px);
+  transform: translateX(32px);
 }
 .nav .switch .slider {
   position: absolute;
@@ -245,7 +246,7 @@ aside header.brand img {
 .social .mail:hover,
 .social .codepen:hover {
   -webkit-transform: scale(1.5);
-          transform: scale(1.5);
+  transform: scale(1.5);
   transition: all 0.2s ease-in-out;
 }
 .social .fb {
@@ -280,7 +281,7 @@ section {
 }
 
 #home {
-  background: #f7f7f7 url(../img/home-bg.png) no-repeat;
+  background: #f7f7f7 url(https://i.postimg.cc/JhMZ3KB0/home-bg.png) no-repeat;
   background-position: center;
   background-size: cover;
   overflow: hidden;
@@ -342,7 +343,8 @@ section {
     display: block;
   }
 }
-.nav-icon::after, .nav-icon::before,
+.nav-icon::after,
+.nav-icon::before,
 .nav-icon div {
   background-color: #000;
   border-radius: 3px;
@@ -361,15 +363,15 @@ section {
 }
 .slideout-open .nav-icon::before {
   -webkit-transform: translateY(12px) rotate(135deg);
-          transform: translateY(12px) rotate(135deg);
+  transform: translateY(12px) rotate(135deg);
 }
 .slideout-open .nav-icon div {
   -webkit-transform: scale(0);
-          transform: scale(0);
+  transform: scale(0);
 }
 .slideout-open .nav-icon:after {
   -webkit-transform: translateY(-12px) rotate(-135deg);
-          transform: translateY(-12px) rotate(-135deg);
+  transform: translateY(-12px) rotate(-135deg);
 }
 
 #works .title,
@@ -413,17 +415,17 @@ section {
   opacity: 0.5;
   transition: 0.2s;
   -webkit-transform: scale(0.5);
-          transform: scale(0.5);
+  transform: scale(0.5);
 }
 #works .projects .item.obs {
   -webkit-transform: scale(1);
-          transform: scale(1);
+  transform: scale(1);
   opacity: 1;
 }
 #works .projects .item:hover {
   box-shadow: 10px 10px 5px -4px rgba(0, 0, 0, 0.12);
   -webkit-transform: scale(1.1);
-          transform: scale(1.1);
+  transform: scale(1.1);
   z-index: 2;
   transition: all 0.1s ease-in-out;
   cursor: pointer;
@@ -454,7 +456,8 @@ section {
   text-decoration: none;
   margin: 0 5px;
 }
-#works .projects .item .caption a.download, #works .projects .item .caption a.preview {
+#works .projects .item .caption a.download,
+#works .projects .item .caption a.preview {
   padding: 8px 12px;
   transition: all 0.1s ease-in-out;
   background: #fff;
@@ -590,6 +593,10 @@ section {
   color: rgba(0, 0, 0, 0.68);
 }
 
+#contact {
+  min-height: 50vh;
+}
+
 #my_form {
   width: 50%;
   margin: 10% auto;
@@ -631,9 +638,9 @@ section {
   border: none;
   outline: none;
   -webkit-transform-style: preserve-3d;
-          transform-style: preserve-3d;
+  transform-style: preserve-3d;
   -webkit-perspective: 500px;
-          perspective: 500px;
+  perspective: 500px;
   transition: 0.5s;
   position: relative;
 }
@@ -647,20 +654,20 @@ section {
   display: block;
   text-align: center;
   -webkit-backface-visibility: hidden;
-          backface-visibility: hidden;
+  backface-visibility: hidden;
   -webkit-transform-style: preserve-3d;
-          transform-style: preserve-3d;
+  transform-style: preserve-3d;
   transition: 0.5s;
   border-radius: 30px;
   color: #fff;
 }
 #my_form .mybtn span.front {
   -webkit-transform: rotateX(0deg) translateZ(20px);
-          transform: rotateX(0deg) translateZ(20px);
+  transform: rotateX(0deg) translateZ(20px);
 }
 #my_form .mybtn span.back {
   -webkit-transform: rotateX(180deg) translateZ(20px);
-          transform: rotateX(180deg) translateZ(20px);
+  transform: rotateX(180deg) translateZ(20px);
 }
 #my_form .mybtn span.center {
   background: linear-gradient(190deg, #330867 0%, #2e2ed2 50%, #074272 100%);
@@ -675,22 +682,22 @@ section {
   border-radius: 30px;
   background: linear-gradient(190deg, #074272 0%, #2e2ed2 50%, #330867 100%);
   -webkit-transform: translatez(-1px);
-          transform: translatez(-1px);
+  transform: translatez(-1px);
 }
 #my_form .mybtn:hover .center {
   background: #304ffe;
 }
 #my_form .mybtn.action .front {
   -webkit-transform: rotateX(-180deg) translateZ(20px);
-          transform: rotateX(-180deg) translateZ(20px);
+  transform: rotateX(-180deg) translateZ(20px);
 }
 #my_form .mybtn.action .back {
   -webkit-transform: rotateX(0deg) translateZ(20px);
-          transform: rotateX(0deg) translateZ(20px);
+  transform: rotateX(0deg) translateZ(20px);
 }
 #my_form .mybtn.action .center {
   -webkit-transform: rotateX(-180deg);
-          transform: rotateX(-180deg);
+  transform: rotateX(-180deg);
 }
 
 #snackbar {
@@ -855,7 +862,8 @@ section {
   color: #fff;
   font-weight: bold;
 }
-.dark-mode .nav-icon::after, .dark-mode .nav-icon::before,
+.dark-mode .nav-icon::after,
+.dark-mode .nav-icon::before,
 .dark-mode .nav-icon div {
   background-color: #fff;
 }
