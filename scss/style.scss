@@ -20,6 +20,7 @@
       background: #1d1e22;
       z-index: 2;
     }
+
     &:nth-child(2) {
       background: #03a9f4;
       animation-delay: 0.5s;
@@ -32,6 +33,7 @@
   0% {
     transform: scaleY(1);
   }
+
   100% {
     transform: scaleY(0);
   }
@@ -51,19 +53,16 @@ $white_grey: lighten($grey, 25%);
 $white: #fff;
 $black: #000;
 $Purple_Heart: #673ab7;
-$blue_gradient: linear-gradient(
-  190deg,
+$blue_gradient: linear-gradient(190deg,
   rgba(51, 8, 103, 1) 0%,
   rgba(46, 46, 210, 1) 50%,
-  rgb(7, 66, 114) 100%
-);
-$blue_gradient_reverse: linear-gradient(
-  190deg,
+  rgb(7, 66, 114) 100%);
+$blue_gradient_reverse: linear-gradient(190deg,
   rgb(7, 66, 114) 0%,
   rgba(46, 46, 210, 1) 50%,
-  rgba(51, 8, 103, 1) 100%
-);
+  rgba(51, 8, 103, 1) 100%);
 $box-shadow: 10px 10px 5px -4px rgba(0, 0, 0, 0.12);
+
 //custom scroll bar
 /* width */
 ::-webkit-scrollbar {
@@ -120,6 +119,15 @@ body {
 a {
   text-decoration: none;
   color: inherit;
+}
+
+span {
+  box-shadow: inset 0 -0.3rem 0 0 #2EAFAC;
+  transition: box-shadow 0.2s;
+
+  &:hover {
+    box-shadow: inset 0 -2.5rem 0 0 #2EAFAC;
+  }
 }
 
 p {
@@ -195,6 +203,7 @@ aside {
       transition: all 1s cubic-bezier(0.075, 0.82, 0.165, 1);
     }
   }
+
   .switch {
     position: relative;
     display: inline-block;
@@ -202,26 +211,32 @@ aside {
     height: 26px;
     margin-top: 2.5em;
     font-family: inherit;
+
     &::before {
       position: absolute;
       content: "Theme";
       top: -22px;
       left: 5px;
     }
+
     input {
       opacity: 0;
       width: 0;
       height: 0;
-      &:checked + .slider {
+
+      &:checked+.slider {
         background: #2196f3;
       }
-      &:focus + .slider {
+
+      &:focus+.slider {
         box-shadow: 0 0 1px #2196f3;
       }
-      &:checked + .slider::before {
+
+      &:checked+.slider::before {
         transform: translateX(32px);
       }
     }
+
     .slider {
       position: absolute;
       cursor: pointer;
@@ -231,6 +246,7 @@ aside {
       bottom: 0;
       background: #ccc;
       transition: 0.4s;
+
       &::before {
         position: absolute;
         content: "";
@@ -241,6 +257,7 @@ aside {
         background: $white;
         transition: 0.4s;
       }
+
       &.round {
         border-radius: 34px;
 
@@ -265,7 +282,7 @@ aside {
     width: 25px;
     border-radius: 50%;
     padding: 0.1em;
-    line-height: 1.2;
+    line-height: 1.4;
     text-align: center;
     vertical-align: middle;
     cursor: pointer;
@@ -281,14 +298,17 @@ aside {
     background-color: #3b5998;
     color: $white;
   }
+
   .github {
     background-color: #ecd71b;
     color: rgb(0, 0, 0);
   }
+
   .mail {
     background-color: red;
     color: $white;
   }
+
   .codepen {
     background-color: #d40d70;
     color: $white;
@@ -317,6 +337,7 @@ section {
   background-size: cover;
   overflow: hidden;
   position: relative;
+
   .title img {
     max-width: 80%;
     width: 70%;
@@ -353,6 +374,7 @@ section {
     right: 5vw;
     z-index: 1;
     box-shadow: $box-shadow;
+
     &:hover {
       background: $blue;
       color: $white;
@@ -360,6 +382,7 @@ section {
     }
   }
 }
+
 //nav icon---------------------------------------------
 .nav-icon {
   margin: 1em;
@@ -370,9 +393,11 @@ section {
   display: none;
   cursor: pointer;
   z-index: 2;
+
   @media #{$tablet} {
     display: block;
   }
+
   &::after,
   &::before,
   div {
@@ -384,15 +409,19 @@ section {
     margin: 7px 0;
     transition: all 0.2s ease-in-out;
   }
+
   div {
     width: 30px;
   }
 }
+
 .slideout-open .nav-icon {
   margin-left: 16em;
+
   &::before {
     transform: translateY(12px) rotate(135deg);
   }
+
   & div {
     transform: scale(0);
   }
@@ -401,6 +430,7 @@ section {
     transform: translateY(-12px) rotate(-135deg);
   }
 }
+
 //all the titles------------------------------------
 #works .title,
 #about .title,
@@ -414,16 +444,20 @@ section {
   font-size: 1.5em;
   font-weight: bold;
   box-shadow: $box-shadow;
+
   span {
     color: $blue;
   }
 }
+
 .title_sub {
   margin: 1em 0 0 3.7em;
+
   span {
     color: $blue;
   }
 }
+
 //Works----------------------------------
 #works {
   .projects {
@@ -431,18 +465,13 @@ section {
     flex-wrap: wrap;
     margin: 3em 2em;
     justify-content: center;
+
     .item {
       background: $white;
       margin: 1.5em 0.7em;
       position: relative;
       width: 247px;
-      opacity: 0.5;
-      transition: 0.2s;
-      transform: scale(0.5);
-      &.obs {
-        transform: scale(1);
-        opacity: 1;
-      }
+
       &:hover {
         box-shadow: $box-shadow;
         transform: scale(1.1);
@@ -454,9 +483,11 @@ section {
           color: $blue;
         }
       }
+
       i {
         color: $black;
       }
+
       img {
         height: 200px;
         width: 247px;
@@ -470,10 +501,12 @@ section {
 
         p {
           font-size: 1em;
+
           span {
             font-weight: bold;
           }
         }
+
         a {
           text-decoration: none;
           margin: 0 5px;
@@ -485,18 +518,22 @@ section {
             background: $white;
             box-shadow: $box-shadow;
           }
+
           &.download {
             position: absolute;
             right: 35px;
             bottom: 0;
           }
+
           &.preview {
             position: absolute;
             right: -5px;
             bottom: 0;
           }
+
           &:hover {
             background: $blue;
+
             i {
               color: $white;
             }
@@ -506,14 +543,16 @@ section {
     }
   }
 }
+
 //about------------------------------------------------
 
 .about-info {
   margin: 5em 2em;
   display: grid;
   grid-gap: 30px;
-  grid-template-areas: "bioimage bio bio" "job1 job2 job3";
+  grid-template-areas: "bioimage bio bio""job1 job2 job3";
   grid-template-columns: repeat(3, 1fr);
+
   .bio-image {
     margin: auto;
     max-width: 100%;
@@ -524,10 +563,12 @@ section {
     grid-area: bioimage;
     box-shadow: $box-shadow;
   }
+
   .bio {
     font-size: 1.5rem;
     grid-area: bio;
   }
+
   .job-1,
   .job-2,
   .job-3 {
@@ -535,25 +576,29 @@ section {
     border-bottom: $blue 5px solid;
     background: $white;
   }
+
   .job-1 {
     grid-area: job1;
   }
+
   .job-2 {
     grid-area: job2;
   }
+
   .job-3 {
     grid-area: job3;
   }
+
   span {
     color: $blue;
   }
 }
+
 //skills---------------------------------------
 
 #skills {
   .skill_progress {
     padding: 5em;
-    background: lightgray;
     border-radius: 40px;
     margin: 3em;
 
@@ -561,6 +606,7 @@ section {
       padding: 1em;
       margin: 2em 1em;
     }
+
     .skillbar {
       position: relative;
       display: block;
@@ -597,6 +643,7 @@ section {
         -moz-border-radius-bottomleft: 3px;
         border-top-left-radius: 3px;
         border-bottom-left-radius: 3px;
+
         span {
           display: block;
           background: rgba(0, 0, 0, 0.1);
@@ -611,6 +658,7 @@ section {
           border-bottom-left-radius: 3px;
         }
       }
+
       .skillbar-bar {
         height: 35px;
         width: 0px;
@@ -632,10 +680,12 @@ section {
     }
   }
 }
+
 // contact form---------------------------------------------
 #contact {
   min-height: 50vh;
 }
+
 #my_form {
   width: 50%;
   margin: 10% auto;
@@ -660,6 +710,7 @@ section {
   &::placeholder {
     color: darken(#f9f9f9, 50%);
   }
+
   .mybtn {
     background: transparent;
     color: $white;
@@ -673,6 +724,7 @@ section {
     perspective: 500px;
     transition: 0.5s;
     position: relative;
+
     span {
       position: absolute;
       top: 0;
@@ -687,6 +739,7 @@ section {
       transition: 0.5s;
       border-radius: 30px;
       color: #fff;
+
       &.front {
         transform: rotateX(0deg) translateZ(20px);
       }
@@ -711,9 +764,11 @@ section {
         }
       }
     }
+
     &:hover .center {
       background: $blue;
     }
+
     &.action {
       .front {
         transform: rotateX(-180deg) translateZ(20px);
@@ -744,17 +799,20 @@ section {
   left: 50%;
   bottom: 30px;
   font-size: 17px;
+
   &.show {
     visibility: visible;
     -webkit-animation: fadein 0.5s, fadeout 0.5s 2.5s;
     animation: fadein 0.5s, fadeout 0.5s 2.5s;
   }
 }
+
 @keyframes fadein {
   from {
     bottom: 0;
     opacity: 0;
   }
+
   to {
     bottom: 30px;
     opacity: 1;
@@ -784,9 +842,11 @@ section {
   overflow: auto;
   -webkit-overflow-scrolling: touch;
   display: none;
+
   @media #{$tablet} {
     width: 256px;
   }
+
   @media #{$desktop} {
     display: block;
   }
@@ -797,6 +857,7 @@ section {
   z-index: 1;
   will-change: transform;
 }
+
 .slideout-open,
 .slideout-open body,
 .slideout-open .slideout-panel {
@@ -813,39 +874,49 @@ section {
 .dark-mode {
   color: $white;
   background: $blue_gradient;
+
   p {
     color: $white;
   }
+
   aside {
     background: $blue_gradient;
   }
+
   .nav {
     .nav_items {
       color: $white;
+
       &:hover {
         color: #ecd71b;
       }
     }
   }
+
   section {
     background: rgb(48, 207, 208);
     background: $blue_gradient;
   }
+
   #home {
     background: $blue_gradient;
+
     div.hire {
       box-shadow: $box-shadow;
       background: rgba(51, 8, 103, 1);
       color: $white;
+
       &:hover {
         background: $white;
         color: $blue;
       }
     }
   }
+
   #skills {
     color: $black;
   }
+
   #works .title,
   #about .title,
   #skills .title,
@@ -857,32 +928,40 @@ section {
       color: lighten($blue, 10%);
     }
   }
+
   .title_sub {
     span {
       color: lighten($blue, 10%);
     }
   }
+
   .projects .caption {
     p {
       color: $black;
     }
   }
+
   .about-info {
+
     .job-1,
     .job-2,
     .job-3 {
       color: $white;
       background: lighten($blue, 10%);
+
       p {
         color: $white;
       }
     }
+
     span {
       color: $white;
       font-weight: bold;
     }
   }
+
   .nav-icon {
+
     &::after,
     &::before,
     div {
@@ -896,19 +975,24 @@ section {
   aside header.brand img {
     margin-top: 5vh;
   }
+
   .nav {
     margin-top: 2em;
   }
+
   .social {
     margin-top: 4em;
   }
+
   main {
     display: grid;
     grid-template-columns: 1fr;
   }
+
   #home .title {
     margin-left: 1.4em;
   }
+
   #home div.hire {
     font-size: 0.75em;
   }
@@ -916,6 +1000,7 @@ section {
   #about .title_sub {
     margin: 1em 0 0 2em;
   }
+
   #works .title,
   #about .title,
   #skills .title,
@@ -923,34 +1008,43 @@ section {
     margin: 0;
     padding: 0.5em 0.5em 0.5em 1em;
   }
+
   .projects {
     justify-content: center;
   }
+
   .about-info .bio {
     font-size: 1.2rem;
   }
+
   #my_form {
     width: 80%;
   }
+
   #main-footer {
     margin: 0;
   }
 }
+
 @media #{$phone} {
   .projects {
     margin: 3em 0 0 0;
   }
+
   .about-info {
     grid-gap: 1em;
   }
+
   .about-info .bio-image {
     width: 28vw;
   }
 }
+
 @media #{$xs-phone} {
   h2 {
     font-size: 1em;
   }
+
   #home .contact_btn {
     margin: 2em 0 2em 1.5em;
     height: 2em;
@@ -961,22 +1055,27 @@ section {
   #home div.hire {
     line-height: 7vmax;
   }
+
   .projects .item .caption p {
     font-size: 0.8em;
   }
+
   .about-info {
     margin: 5em 2em;
     grid-gap: 30px;
-    grid-template-areas: "bioimage" "bio" "job1" "job2" "job3";
+    grid-template-areas: "bioimage""bio""job1""job2""job3";
     grid-template-columns: 1fr;
   }
+
   .about-info .bio-image {
     width: 70vw;
   }
+
   #skills {
     .skill_progress {
       justify-content: center;
     }
+
     .progress_items {
       height: 150px;
       width: 200px;

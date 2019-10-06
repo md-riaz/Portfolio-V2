@@ -1,5 +1,5 @@
 //click on theme change
-$("#change-theme").on("change ", function() {
+$("#change-theme").on("change ", function () {
   if ($(this).prop("checked")) {
     darkmode();
   } else {
@@ -26,7 +26,7 @@ if (sessionStorage.getItem("mode") == "dark") {
 }
 
 //nav bar icon
-$(".nav-icon").on("click", function() {
+$(".nav-icon").on("click", function () {
   slideout.toggle();
 });
 
@@ -42,12 +42,12 @@ var typed = new Typed(".auto_type", {
 });
 
 //scroll progress loader on top
-$(function() {
+$(function () {
   $("#progress").progress();
 });
 
 //contact form
-$("#my_form").submit(function(event) {
+$("#my_form").submit(function (event) {
   $(".mybtn").addClass("action");
   event.preventDefault(); //prevent default action
   var post_url = $(this).attr("action"); //get form action url
@@ -58,12 +58,14 @@ $("#my_form").submit(function(event) {
     url: post_url,
     type: request_method,
     data: form_data
-  }).done(function(response) {
+  }).done(function (response) {
     $("#my_form").trigger("reset");
     $(".mybtn").removeClass("action");
     var x = document.getElementById("snackbar");
     x.className = "show";
-    setTimeout(function(){ x.className = x.className.replace("show", ""); }, 3000);
+    setTimeout(function () {
+      x.className = x.className.replace("show", "");
+    }, 3000);
   });
 });
 
@@ -76,12 +78,11 @@ var slideout = new Slideout({
 });
 
 //skill bars
-jQuery(document).ready(function() {
-  jQuery(".skillbar").each(function() {
+jQuery(document).ready(function () {
+  jQuery(".skillbar").each(function () {
     jQuery(this)
       .find(".skillbar-bar")
-      .animate(
-        {
+      .animate({
           width: jQuery(this).attr("data-percent")
         },
         6000
@@ -112,27 +113,3 @@ superplaceholder({
   el: document.getElementById("m"),
   sentences: ["Type your messege now...", "This should not be empty!!!!"]
 });
-
-/*Lazy loading img with intersection observer*/
-let observer = new IntersectionObserver((entries, observer) => { 
-		entries.forEach(entry => {
-		if(entry.isIntersecting){
-			console.log(entry);
-			entry.target.src = entry.target.dataset.src;
-			observer.unobserve(entry.target);
-		}
-		});
-	}, {rootMargin: "0px 0px 1000px 0px"});
-	document.querySelectorAll('img').forEach(img => { observer.observe(img) });
-
-//scal project items
-let projectitem = new IntersectionObserver((entries, projectitem) => { 
-		entries.forEach(entry => {
-		if(entry.isIntersecting){
-			console.log(entry);
-			$(".item").addClass("obs");
-			projectitem.unobserve(entry.target);
-		}
-		});
-	}, {rootMargin: "0px 0px 0px 0px"});
-	document.querySelectorAll('.item').forEach(em => { projectitem.observe(em) });
