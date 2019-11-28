@@ -47,27 +47,27 @@ $(function () {
 });
 
 //contact form
-$("#my_form").submit(function (event) {
-  $(".mybtn").addClass("action");
-  event.preventDefault(); //prevent default action
-  var post_url = $(this).attr("action"); //get form action url
-  var request_method = $(this).attr("method"); //get form GET/POST method
-  var form_data = $(this).serialize(); //Encode form elements for submission
+// $("#my_form").submit(function (event) {
+//   $(".mybtn").addClass("action");
+//   event.preventDefault(); //prevent default action
+//   var post_url = $(this).attr("action"); //get form action url
+//   var request_method = $(this).attr("method"); //get form GET/POST method
+//   var form_data = $(this).serialize(); //Encode form elements for submission
 
-  $.ajax({
-    url: post_url,
-    type: request_method,
-    data: form_data
-  }).done(function (response) {
-    $("#my_form").trigger("reset");
-    $(".mybtn").removeClass("action");
-    var x = document.getElementById("snackbar");
-    x.className = "show";
-    setTimeout(function () {
-      x.className = x.className.replace("show", "");
-    }, 3000);
-  });
-});
+//   $.ajax({
+//     url: post_url,
+//     type: request_method,
+//     data: form_data
+//   }).done(function (response) {
+//     $("#my_form").trigger("reset");
+//     $(".mybtn").removeClass("action");
+//     var x = document.getElementById("snackbar");
+//     x.className = "show";
+//     setTimeout(function () {
+//       x.className = x.className.replace("show", "");
+//     }, 3000);
+//   });
+// });
 
 //Slideout.js
 var slideout = new Slideout({
